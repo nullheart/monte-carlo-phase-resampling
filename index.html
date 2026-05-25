@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A browser demo of Monte Carlo phase resampling for percussive one-shot sound design."
+    >
+    <title>Monte Carlo Phase Resampling</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <h1>Monte Carlo Phase Resampling</h1>
+          <div class="brand-subrow">
+            <p class="product-subtitle">Random phase / single ISTFT / percussive one-shots</p>
+          </div>
+        </div>
+        <div class="status" id="status">Default one-shot loaded. Press Spin.</div>
+      </header>
+
+      <section class="method-strip" aria-label="Signal path">
+        <span>STFT magnitude fixed</span>
+        <span>phase randomly resampled</span>
+        <span>one inverse STFT pass</span>
+      </section>
+
+      <section class="tool-grid">
+        <section class="panel input-panel sample-module">
+          <label class="drop-zone" id="dropZone">
+            <input id="fileInput" type="file" accept="audio/*,.wav">
+            <span class="slot-label">Source One-Shot</span>
+            <span class="drop-title">Drop Percussive WAV</span>
+            <span class="drop-meta" id="fileMeta">Default synthetic kick loaded</span>
+          </label>
+
+          <div class="button-row transport-actions">
+            <button id="playOriginalBtn" type="button" disabled>
+              <span aria-hidden="true">▶</span>
+              Original
+            </button>
+            <button id="stopBtn" type="button" disabled>
+              <span aria-hidden="true">■</span>
+              Stop
+            </button>
+          </div>
+        </section>
+
+        <section class="panel controls-panel machine-panel">
+          <div class="machine-controls">
+            <div class="control phase-module">
+              <label for="phaseRange">
+                <span>Random Phase Mix</span>
+                <output id="phaseValue">100%</output>
+              </label>
+              <div class="slider-control">
+                <input id="phaseRange" type="range" min="0" max="100" value="100">
+              </div>
+            </div>
+
+            <div class="fft-module">
+              <select id="fftSizeSelect" class="sr-only" aria-label="FFT Size">
+                <option value="1024">1024</option>
+                <option value="2048" selected>2048</option>
+                <option value="4096">4096</option>
+              </select>
+              <div class="fft-segment" role="group" aria-label="FFT Size">
+                <span class="module-label">FFT</span>
+                <button class="fft-option" type="button" data-fft="1024">1024</button>
+                <button class="fft-option active" type="button" data-fft="2048">2048</button>
+                <button class="fft-option" type="button" data-fft="4096">4096</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="button-row primary-actions">
+            <button id="rerollBtn" class="spin-button" type="button" disabled>
+              <span aria-hidden="true">🎯</span>
+              Spin
+            </button>
+            <button id="replayBtn" type="button" disabled>
+              <span aria-hidden="true">▶</span>
+              Replay
+            </button>
+            <button id="exportBtn" type="button" disabled>
+              <span aria-hidden="true">↓</span>
+              Export
+            </button>
+          </div>
+        </section>
+      </section>
+
+      <section class="visual-grid">
+        <section class="visual-panel">
+          <div class="visual-head">
+            <h2>Original</h2>
+            <span id="originalPeak">peak --</span>
+          </div>
+          <canvas id="originalWave" width="960" height="180"></canvas>
+        </section>
+
+        <section class="visual-panel">
+          <div class="visual-head">
+            <h2>Resampled</h2>
+            <span id="processedPeak">score --</span>
+          </div>
+          <canvas id="processedWave" width="960" height="180"></canvas>
+        </section>
+
+        <section class="visual-panel wide">
+          <div class="visual-head">
+            <h2>Magnitude Spectrogram</h2>
+            <span id="seedInfo">ready</span>
+          </div>
+          <canvas id="spectrogram" width="1440" height="260"></canvas>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
