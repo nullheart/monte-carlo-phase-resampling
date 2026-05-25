@@ -13,7 +13,7 @@ Open `index.html` in a browser, or publish this repository with GitHub Pages.
 Expected GitHub Pages URL:
 
 ```text
-https://sasakidaiki.github.io/monte-carlo-phase-resampling/
+https://nullheart.github.io/monte-carlo-phase-resampling/
 ```
 
 ## Signal Path
