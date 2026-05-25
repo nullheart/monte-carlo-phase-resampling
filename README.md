@@ -2,9 +2,13 @@
 
 Browser demo for random-phase one-shot resynthesis.
 
-This demo explores a simple claim:
+This demo explores the following research question:
 
-> For percussive one-shot sounds, phase does not always have to be restored as a ground-truth object. It can be resampled as a timbre-design degree of freedom.
+> Percussive one-shot sounds exhibit nontrivial perceptual tolerance to STFT phase randomization, and this tolerance can be exploited as a sound-design search space rather than treated as reconstruction error.
+
+Short version:
+
+> Phase does not always have to be restored as a ground-truth object. For percussive one-shots, it can be resampled as a timbre-design degree of freedom.
 
 ## Demo
 
