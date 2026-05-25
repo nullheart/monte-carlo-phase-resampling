@@ -44,6 +44,10 @@ This is intentionally not Griffin-Lim reconstruction. The goal is not to recover
 
 This research demo is separated from the commercial-facing prototype `Tighten Your Kick`.
 
+## Contact
+
+represent.area955@gmail.com
+
 ## License
 
 License is not specified yet.
