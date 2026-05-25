@@ -33,12 +33,17 @@ https://nullheart.github.io/monte-carlo-phase-resampling/
 
 This is intentionally not Griffin-Lim reconstruction. The goal is not to recover a consistent original phase, but to sample useful percussive variants from the phase degrees of freedom.
 
+## Prior Art
+
+See [PRIOR_ART.md](./PRIOR_ART.md) for a compact research-context note on phase perception, STFT phase reconstruction, phase-aware spectrogram models, sound texture synthesis, and the research gap targeted by this demo.
+
 ## Files
 
 - `index.html`: GitHub Pages demo shell.
 - `styles.css`: responsive UI styling.
 - `app.js`: FFT, STFT, random phase resampling, single-pass ISTFT, playback, WAV export.
 - `_headers`: optional security headers for Cloudflare Pages; ignored by GitHub Pages.
+- `PRIOR_ART.md`: prior-art and positioning note.
 
 ## Related Product
 
